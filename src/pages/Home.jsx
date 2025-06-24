@@ -7,10 +7,24 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
+			<div className="container">
+				<div row>
+					<div className="col-md-3">
+						<img src="https://picsum.photos/100" className="rounded-5" alt="" />
+					</div>
+					<div className="col-md-5">
+						<h3>Nombre</h3>
+						<p>Adress</p>
+						<p>number</p>
+						<p>mail</p>
+					</div>
+					<div className="col-md-3">
+						<span>symbol</span>
+						<span>symbol</span>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	);
 }; 
