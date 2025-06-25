@@ -12,5 +12,4 @@ export const router = createBrowserRouter([
     path: "/add",
     element: <AddContact />,
   },
-  // Aquí más adelante pondremos "/edit/:id"
 ]);
