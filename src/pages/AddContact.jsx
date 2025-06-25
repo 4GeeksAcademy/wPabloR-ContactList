@@ -1,9 +1,10 @@
 import useGlobalReducer from "../hooks/useGlobalReducer";
-import { Link } from "react-router-dom";
-import { useEffect, useReducer, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-export const AddContact = () => {
+const AddContact = () => {
 
+  const navigate = useNavigate()
   const { store, dispatch } = useGlobalReducer()
 
   const [input, setInput] = useState({
@@ -32,14 +33,14 @@ export const AddContact = () => {
     })
       .then(resp => resp.json())
       .then(data => {
-         console.log("Respuesta POST:", data);
-        dispatch({type:'ADD_CONTACT',  payload: data})
+        dispatch({type:'ADD_CONTACT',  payload: data});
         setInput({
           name: "",
           email: "",
           phone: "",
           address: ""
         });
+        navigate("/")
       })
       .catch(error => console.error("Error al guardar el contacto",error))
   };
@@ -69,11 +70,11 @@ export const AddContact = () => {
         </div>
 
         <button className="btn btn-primary">Save</button>
+        <button className="btn btn-danger" type="button" onClick={()=> navigate("/")}>Back</button>
       </form>
 
-      <Link to="/">
-        <button className="btn btn-primary">Back home</button>
-      </Link>
     </div>
   );
 };
+
+export default AddContact
